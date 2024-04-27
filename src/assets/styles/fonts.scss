@@ -1,0 +1,48 @@
+@font-face {
+  font-family: lighthaus;
+  font-style: normal;
+  font-weight: 400;
+  src:
+    local('Lighthaus'),
+    url('/public/fonts/LighthausRegular.woff') format('woff');
+}
+@font-face {
+  font-family: cormorantGaramond;
+  font-style: normal;
+  font-weight: 400;
+  src:
+    local('CormorantGaramond'),
+    url('/public/fonts/CormorantGaramond-Regular.woff') format('woff');
+}
+@font-face {
+  font-family: marckScript;
+  font-style: normal;
+  font-weight: 400;
+  src:
+    local('MarckScript'),
+    url('/public/fonts/MarckScript-Regular.woff') format('woff');
+}
+@font-face {
+  font-family: montserrat;
+  font-style: normal;
+  font-weight: 200;
+  src:
+    local('Montserrat'),
+    url('/public/fonts/Montserrat-Extralight.woff') format('woff');
+}
+@font-face {
+  font-family: montserrat;
+  font-style: normal;
+  font-weight: 300;
+  src:
+    local('Montserrat'),
+    url('/public/fonts/Montserrat-Light.woff') format('woff');
+}
+@font-face {
+  font-family: montserrat;
+  font-style: normal;
+  font-weight: 400;
+  src:
+    local('Montserrat'),
+    url('/public/fonts/Montserrat-Regular.woff') format('woff');
+}

@@ -1,0 +1,119 @@
+@import './fonts.scss';
+@import 'swiper/css';
+:root {
+  --lighthaus: 'Lighthaus', sans-serif;
+  --montserrat: 'Montserrat', sans-serif;
+  --cormorantGaramond: 'CormorantGaramond', sans-serif;
+  --marckScript: 'MarckScript', sans-serif;
+  --color-text: #161515;
+  --color-background: #808080;
+  --color-background-light: #e5bebe; //rgba(229, 190, 190, 1)
+  --color-background-container: #f3e4e4;
+  /* #dda3b6 */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  font-family: var(--montserrat), sans-serif;
+  text-decoration: none;
+  font-weight: normal;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  position: relative;
+  color: var(--color-text);
+  background: var(--color-background);
+  background: rgba(229, 190, 190, 0.5);
+  transition:
+    color 0.5s,
+    background-color 0.5s;
+  line-height: 1.6;
+  font-family: var(--montserrat), sans-serif;
+  font-size: 16px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a {
+  color: var(--color-text);
+  font-weight: 400;
+  cursor: pointer;
+}
+h1 {
+  font-family: var(--lighthaus);
+  font-size: 4rem;
+}
+.main-container {
+  overflow: hidden;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  // border: 1px solid #e29f9f;
+  background: #eeeeee;
+  height: 100%;
+  //   background: var(--color-background-container);
+}
+// button style
+.border-btn {
+  display: inline-block;
+  position: relative;
+  padding: 10px 25px;
+  margin-right: 20px;
+  /* background: #fff9f1;
+  background: #e5bebe; */
+  background: #f3e4e4;
+  text-decoration: none;
+  font-family: 'Marck Script', cursive;
+  letter-spacing: 1px;
+  border-width: 6px;
+  border-style: double;
+  transition: 0.5s;
+}
+.btn {
+  // margin-top: 1rem;
+  border-color: var(--color-background-light);
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #898989;
+  opacity: 0.7;
+}
+
+.border-btn:before,
+.border-btn:after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 2px;
+  transform: rotate(-45deg);
+  transition: 0.5s;
+}
+.color-one:before,
+.color-one:after {
+  background: #e29f9f;
+}
+.border-btn:before {
+  left: -3px;
+  top: 3px;
+}
+.border-btn:after {
+  right: -3px;
+  bottom: 3px;
+}
+.color-one:hover {
+  transform: scale(0.9);
+  // border-color: #dda3b6;
+  opacity: 1;
+}
+.color-one:hover:before,
+.color-one:hover:after {
+  background: #dda3b6;
+}
