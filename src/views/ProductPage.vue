@@ -176,19 +176,16 @@ const closeCart = () => {
 }
 .item-image img {
   max-height: 500px;
-  // width: 30%;
-  //  margin: 0 0 20px 0;
   transition: transform 0.25s ease;
   &:hover {
     transform: scale(2.5);
   }
-  /* @media (min-width: 768px) {
-    float: left;
-    width: 300px;
-    // margin: 0 30px 20px 45px;
-    border: 10px solid #dddddf;
-    border-left-width: 0;
-  } */
+  @include tablet {
+    transform: scale(1);
+  }
+  @include largemobile {
+    max-width: 300px;
+  }
 }
 .item h3 {
   font-family: var(--lighthaus);
@@ -199,6 +196,9 @@ const closeCart = () => {
   margin-top: 0;
   padding-top: 0;
   text-align: center;
+  @include largemobile {
+    font-size: 1.75rem;
+  }
   @include smallmobile {
     font-size: 1rem;
   }
