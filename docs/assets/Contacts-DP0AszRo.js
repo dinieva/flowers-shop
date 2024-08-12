@@ -1,0 +1,1 @@
+import{I as t}from"./InfoComponent-CweXldKQ.js";import{o as n,m as e}from"./index-BABC9Piw.js";const p={__name:"Contacts",setup(c){const o={title:"Контакты",description:{subtitle:"Мы всегда на связи",content:["Тел: 8(843)543-2-100","Адрес: г.Казань ул.Петербургская","Эл.почта: inspiration.help@gmail.com"]}};return(i,r)=>(n(),e(t,{info:o}))}};export{p as default};
