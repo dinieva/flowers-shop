@@ -258,8 +258,11 @@ const checkout = () => {
 }
 h1 {
   text-align: center;
-  @include smallmobile {
+  @include largemobile {
     font-size: 2rem;
+  }
+  @include smallmobile {
+    font-size: 1.75rem;
   }
 }
 h3 {
