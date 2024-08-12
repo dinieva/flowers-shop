@@ -33,8 +33,9 @@ defineEmits(['closeCart'])
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/media';
 .product-wrap {
-  width: 300px;
+  // width: 300px;
   border-radius: 5px;
   margin: 0 auto;
   background: white;
@@ -44,6 +45,12 @@ defineEmits(['closeCart'])
   font-family: Lora;
   text-transform: uppercase;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+  @include tablet {
+    width: 100%;
+  }
+  @include largemobile {
+    // width: 300px;
+  }
 }
 .product-item {
   position: relative;

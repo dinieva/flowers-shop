@@ -113,7 +113,7 @@ defineEmits(['closeCart'])
 <style lang="scss" scoped>
 .product-inner {
   width: 200px;
-  // width: 100%;
+  height: 100%;
   margin: 0 auto;
   background: white;
   text-align: center;

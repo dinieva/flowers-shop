@@ -1,5 +1,6 @@
 @import './fonts.scss';
 @import 'swiper/css';
+@import './media';
 :root {
   --lighthaus: 'Lighthaus', sans-serif;
   --montserrat: 'Montserrat', sans-serif;
@@ -49,6 +50,9 @@ a {
 h1 {
   font-family: var(--lighthaus);
   font-size: 4rem;
+  @media screen and (max-width: 520px) {
+    font-size: 3rem;
+  }
 }
 .main-container {
   overflow: hidden;

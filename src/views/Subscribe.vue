@@ -110,6 +110,9 @@ const subscribeTariffsStore = useSubscribeTariffsStore()
     font-family: var(--cormorantGaramond), serif;
     font-size: 2rem;
     margin-bottom: 2rem;
+    @media screen and (max-width: 530px) {
+      margin-bottom: 0rem;
+    }
   }
   &__items {
     display: grid;
@@ -119,14 +122,23 @@ const subscribeTariffsStore = useSubscribeTariffsStore()
     grid-row-gap: 0px;
     align-items: center;
     justify-content: center;
+    @media screen and (max-width: 530px) {
+      display: block;
+    }
   }
   &__step-descr {
     font-weight: 600;
+    @media screen and (max-width: 530px) {
+      padding: 1rem 0;
+    }
   }
   &__arrow {
     width: 80px;
     height: 40px;
     background: url('/public/svg/swirly-arrow.svg') center center/contain no-repeat;
+    @media screen and (max-width: 530px) {
+      margin: 0 auto;
+    }
   }
   .div1 {
     grid-area: 1 / 1 / 2 / 2;

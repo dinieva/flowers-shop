@@ -82,17 +82,25 @@ h3 {
 .image-decor {
   position: relative;
   display: table;
-  /* margin: 0px auto; */
   border: 5px solid #fff;
   box-shadow: 1px 1px 20px 0 rgba(0, 0, 0, 0.1);
+  width: 350px;
+  padding: 15px;
+  cursor: pointer;
+  margin: 1rem;
+  @media (max-width: 360px) {
+    padding: 0;
+    margin: 0;
+    max-width: 210px;
+  }
 }
 .image-decor:before,
 .image-decor:after {
   content: '';
   position: absolute;
   z-index: 2;
-  width: 150px;
-  height: 55px;
+  width: 100px;
+  height: 35px;
   background: #fff;
   box-shadow: 0 -10px 10px -5px rgba(0, 0, 0, 0.1);
 }
@@ -100,13 +108,25 @@ h3 {
   left: -50px;
   bottom: -30px;
   transform: rotate(30deg);
+  @media (max-width: 410px) {
+    display: none;
+  }
 }
 .image-decor:after {
   right: -50px;
   bottom: -30px;
   transform: rotate(-30deg);
+  @media (max-width: 851px) {
+    right: -30px;
+  }
+  @media (max-width: 410px) {
+    display: none;
+  }
 }
 .image-decor img {
   display: block;
+  @media (max-width: 360px) {
+    max-width: 210px;
+  }
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <h1>Оформление заказа</h1>
-    <div class="content">
+    <div class="content" v-if="cartItemsStore.allCartItems.length !== 0">
       <div class="left">
         <h3>Выберите способ получения заказа</h3>
         <div class="checkbox-group">
@@ -176,6 +176,10 @@
         </button>
       </div>
     </div>
+    <div class="empty-content" v-else>
+      <h4>Нет товаров для оформления</h4>
+      <ButtonComponent :path="'catalog'">Перейти в каталог</ButtonComponent>
+    </div>
   </div>
 </template>
 
@@ -184,7 +188,7 @@ import { ref, computed } from 'vue'
 import CartItem from '@/components/CartItem.vue'
 import { useToast } from 'vue-toastification'
 import { useCartItemsStore } from '@/stores/cartItems'
-
+import ButtonComponent from '@/components/Layout/ButtonComponent.vue'
 const toast = useToast()
 const cartItemsStore = useCartItemsStore()
 
@@ -247,12 +251,16 @@ const checkout = () => {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/media';
 .container {
   min-height: 830px;
   color: #808080;
 }
 h1 {
   text-align: center;
+  @include smallmobile {
+    font-size: 2rem;
+  }
 }
 h3 {
   margin: 1.5rem 0 1rem 0;
@@ -263,9 +271,17 @@ h3::before {
   margin-right: 5px;
   // left: 0;
 }
-
+.empty-content {
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
 .content {
   display: flex;
+  flex-wrap: wrap;
   padding: 1rem;
   gap: 1rem;
   justify-content: space-around;

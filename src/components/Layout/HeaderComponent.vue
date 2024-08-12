@@ -3,8 +3,7 @@
     <div class="container">
       <nav class="header__menu">
         <router-link to="/about">О нас</router-link>
-        <router-link to="/catalog">Каталог</router-link
-        ><!-- router-link to="/" -->
+        <router-link to="/catalog">Каталог</router-link>
         <li class="topmenu">
           Другие услуги
           <div class="submenu">
@@ -20,7 +19,7 @@
         <router-link to="/contacts">Контакты</router-link>
         <router-link to="/delivery">Доставка</router-link>
       </nav>
-
+      <BurgerHeaderMenu />
       <div class="header__icons">
         <router-link to="/favorites">
           <img src="/public/svg/favorite.svg" alt="favorite" class="header__icon" />
@@ -37,9 +36,14 @@
 </template>
 
 <script setup>
+import BurgerHeaderMenu from './BurgerHeaderMenu.vue'
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/media';
+/* @include laptop {}
+@include tablet {}
+@include mobile {} */
 .topmenu {
   position: relative;
   list-style: none;
@@ -87,6 +91,10 @@
   height: 70px;
   color: var(--color-text);
   background: var(--color-background-light);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
 }
 .container {
   height: 70px;
@@ -102,11 +110,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-left: 10px;
+
+  @include tablet {
+    display: none;
+  }
 }
 .header__icons {
-  width: 10%;
+  // width: 13%;
   display: flex;
   justify-content: space-between;
+  padding-right: 10px;
+  gap: 10px;
 }
 .header__icon {
   height: 25px;

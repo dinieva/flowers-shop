@@ -50,6 +50,7 @@ const cartItemsStore = useCartItemsStore()
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/media';
 .container {
   min-height: 830px;
 }
@@ -82,6 +83,9 @@ const cartItemsStore = useCartItemsStore()
   grid-template-columns: 1.5fr 1fr;
   padding: 2rem;
   gap: 1rem;
+  @media screen and (max-width: 691px) {
+    grid-template-columns: 1fr;
+  }
 }
 .column {
   display: flex;
@@ -96,19 +100,25 @@ const cartItemsStore = useCartItemsStore()
     &-total-price {
       display: flex;
       justify-content: space-between;
-      width: 85%;
+      // width: 85%;
       margin-top: 3rem;
       &-title {
         font-size: 1.1rem;
         letter-spacing: normal;
         line-height: 1.4rem;
+        @include tablet {
+          font-size: 0.8rem;
+        }
       }
       &-value {
-        font-size: 20px;
+        font-size: 1.1rem;
         font-weight: 600;
         letter-spacing: normal;
         line-height: 26px;
         margin-left: 8px;
+        @include tablet {
+          font-size: 0.8rem;
+        }
       }
     }
   }

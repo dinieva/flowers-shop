@@ -35,19 +35,23 @@ const sendForm = async (email) => {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/media';
 .follow-block {
   background-color: rgba(229, 190, 190, 1);
   width: 100%;
-  height: 18vh;
+  min-height: 18vh;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  flex-wrap: wrap;
   padding: 2rem;
   font-size: 2rem;
   font-weight: 500;
   font-family: var(--cormorantGaramond), serif;
   color: #808080;
-
+  @include largemobile {
+    text-align: center;
+  }
   &__input {
     padding: 5px 10px;
     height: 48px;

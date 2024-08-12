@@ -24,6 +24,7 @@ import FooterComponent from './components/Layout/FooterComponent.vue'
 <style scoped>
 main {
   min-height: 100vh;
+  padding-top: 70px;
 }
 .container {
   min-height: 100vh;

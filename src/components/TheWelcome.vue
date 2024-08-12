@@ -101,6 +101,7 @@ const validate = () => {
 </template>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/media';
 /* .container {
   padding-top: 15vh;
 } */
@@ -134,8 +135,12 @@ const validate = () => {
     font-size: 5rem;
     z-index: 10;
     text-transform: capitalize;
-    @media (max-width: 1024px) {
+
+    @include laptop {
       font-size: 4rem;
+    }
+    @include largemobile {
+      font-size: 2rem;
     }
   }
 

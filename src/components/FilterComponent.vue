@@ -1,3 +1,4 @@
+<!-- блок филтрации при десктопной версии -->
 <template>
   <div class="filter-block__category">
     <div class="checkbox" v-for="(link, i) in links" :key="i">

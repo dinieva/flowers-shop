@@ -1,14 +1,14 @@
 <template>
   <DrawerComponent :isOpenCart="isOpenCart" @closeCart="closeCart" />
   <div class="item">
-    <div class="item-image">
-      <img :src="productItem.imgPath" :alt="productItem.title" />
+    <div class="item-header">
+      <h3>
+        {{ $route.params.title }}
+      </h3>
     </div>
     <div class="item-content">
-      <div class="item-header">
-        <h3>
-          {{ $route.params.title }}
-        </h3>
+      <div class="item-image">
+        <img :src="productItem.imgPath" :alt="productItem.title" />
       </div>
       <div class="item-meta">
         <div class="item-meta__price">
@@ -35,40 +35,45 @@
           <span class="item-meta__descr">Оформление: </span>
           <span>{{ productItem.decoration }}</span>
         </div>
-      </div>
-      <button
-        class="btn btn-form border-btn color-one"
-        @click="cartItemsStore.addToCart(productItem), closeCart()"
-        :path="path"
-      >
-        В корзину</button
-      ><!-- :path="'undefined'" -->
-      <button @click="favoritesStore.addToFavorites(productItem)" class="btn-favorite">
-        <svg
-          width="25px"
-          height="25px"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
+        <div class="item-meta__description">
+          <p>{{ productItem.description }} .</p>
+
+          <p>
+            Каждый букет от <span class="logo">Inspiration</span> мы собираем для Вас с любовью и
+            заботой!
+          </p>
+        </div>
+        <button
+          class="btn btn-form border-btn color-one"
+          @click="cartItemsStore.addToCart(productItem), closeCart()"
+          :path="path"
         >
-          <g id="SVGRepo_bgCarrier" stroke-width="0" />
+          В корзину
+        </button>
+        <button @click="favoritesStore.addToFavorites(productItem)" class="btn-favorite">
+          <svg
+            width="25px"
+            height="25px"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0" />
 
-          <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
 
-          <g id="SVGRepo_iconCarrier">
-            <path
-              d="M4.45067 13.9082L11.4033 20.4395C11.6428 20.6644 11.7625 20.7769 11.9037 20.8046C11.9673 20.8171 12.0327 20.8171 12.0963 20.8046C12.2375 20.7769 12.3572 20.6644 12.5967 20.4395L19.5493 13.9082C21.5055 12.0706 21.743 9.0466 20.0978 6.92607L19.7885 6.52734C17.8203 3.99058 13.8696 4.41601 12.4867 7.31365C12.2913 7.72296 11.7087 7.72296 11.5133 7.31365C10.1304 4.41601 6.17972 3.99058 4.21154 6.52735L3.90219 6.92607C2.25695 9.0466 2.4945 12.0706 4.45067 13.9082Z"
-              stroke="#dda3b6"
-            />
-          </g>
-        </svg>
-      </button>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M4.45067 13.9082L11.4033 20.4395C11.6428 20.6644 11.7625 20.7769 11.9037 20.8046C11.9673 20.8171 12.0327 20.8171 12.0963 20.8046C12.2375 20.7769 12.3572 20.6644 12.5967 20.4395L19.5493 13.9082C21.5055 12.0706 21.743 9.0466 20.0978 6.92607L19.7885 6.52734C17.8203 3.99058 13.8696 4.41601 12.4867 7.31365C12.2913 7.72296 11.7087 7.72296 11.5133 7.31365C10.1304 4.41601 6.17972 3.99058 4.21154 6.52735L3.90219 6.92607C2.25695 9.0466 2.4945 12.0706 4.45067 13.9082Z"
+                stroke="#dda3b6"
+              />
+            </g>
+          </svg>
+        </button>
+      </div>
     </div>
   </div>
-  <div class="item-meta__description">
-    {{ productItem.description }}
-    . Каждый букет от <span class="logo">Inspiration</span> мы собираем для Вас с любовью и заботой!
-  </div>
+
   <div class="other-supply">
     <h4>Похожие товары</h4>
     <swiper
@@ -82,6 +87,28 @@
         '--swiper-navigation-top-offset': '50%',
         '--swiper-navigation-sides-offset': '0px',
         '--swiper-navigation-color': 'var(--color-text)'
+      }"
+      :breakpoints="{
+        '320': {
+          slidesPerView: 1,
+          spaceBetween: 10
+        },
+        '520': {
+          slidesPerView: 1,
+          spaceBetween: 10
+        },
+        '640': {
+          slidesPerView: 1,
+          spaceBetween: 20
+        },
+        '768': {
+          slidesPerView: 2,
+          spaceBetween: 40
+        },
+        '1024': {
+          slidesPerView: 3.1,
+          spaceBetween: 50
+        }
       }"
     >
       <swiper-slide class="item-wrapper" v-for="(similarProduct, i) in similarProducts" :key="i">
@@ -137,31 +164,31 @@ const closeCart = () => {
 </script> 
 
 <style lang="scss" scoped>
+@import '@/assets/styles/media';
 .container {
   position: relative;
 }
 .item {
-  display: flex;
   padding: 2rem;
-  // padding: 2em 0 1em;
 }
 .item-image {
   overflow: hidden;
 }
 .item-image img {
-  width: 50%;
-  /*  margin: 0 0 20px 0; */
+  max-height: 500px;
+  // width: 30%;
+  //  margin: 0 0 20px 0;
   transition: transform 0.25s ease;
   &:hover {
     transform: scale(2.5);
   }
-  @media (min-width: 768px) {
+  /* @media (min-width: 768px) {
     float: left;
     width: 300px;
-    /* margin: 0 30px 20px 45px; */
+    // margin: 0 30px 20px 45px;
     border: 10px solid #dddddf;
     border-left-width: 0;
-  }
+  } */
 }
 .item h3 {
   font-family: var(--lighthaus);
@@ -171,13 +198,18 @@ const closeCart = () => {
   margin-bottom: 30px;
   margin-top: 0;
   padding-top: 0;
+  text-align: center;
+  @include smallmobile {
+    font-size: 1rem;
+  }
 }
 .item-content {
-  padding: 0 2rem 2rem 2rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
 }
-.item-header {
-  text-align: center;
-}
+
 .item-meta {
   text-align: left;
   margin-bottom: 30px;
@@ -193,7 +225,7 @@ const closeCart = () => {
     margin-right: 1rem;
   }
   &__description {
-    padding: 2rem;
+    // padding: 2rem;
   }
 }
 

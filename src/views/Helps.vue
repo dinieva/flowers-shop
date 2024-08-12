@@ -6,7 +6,7 @@
         <div class="help-block" v-for="condition in allConditions" :key="condition">
           <div class="transform translate3d">
             <img :src="condition.icons" alt="" class="help-block__img" />
-            <h3>{{ condition.title }}</h3>
+            <h3 class="condition-title">{{ condition.title }}</h3>
             <div>{{ condition.description }}</div>
           </div>
         </div>
@@ -43,7 +43,9 @@ h1 {
 .flower-image {
   width: 300px;
 }
-
+.condition-title {
+  text-align: center;
+}
 /* .text-wrapper {
   max-width: 250px;
   padding: 20px 20px;
@@ -51,7 +53,8 @@ h1 {
   line-height: 1.55;
 } */
 .help-block__img {
-  width: 100px;
+  width: 50px;
+  height: 50px;
   margin: 0.5rem 0.5rem 0 0;
   float: left;
 }
@@ -61,7 +64,7 @@ h1 {
   position: relative;
   display: inline-block;
   margin: 2rem 2rem;
-  opacity: 0.7;
+  // opacity: 0.9;
   border-radius: 5px;
   background: #e4e1e4;
   -webkit-perspective: 400px;
@@ -72,16 +75,19 @@ h1 {
 .transform {
   /* position: absolute;
   top: 0; */
-  background: rgba(197, 127, 161, 0.5);
+  // background: rgba(197, 127, 161, 0.5);
+  background: var(--color-background-light);
   border-radius: 5px;
   -webkit-animation: notransform 8s; /* infinite */
   animation: notransform 8s; /* infinite */
   padding: 0.8rem 2rem;
+  color: #000;
 }
 .translate3d {
   -webkit-transform: translate3d(20px, 20px, 20px);
   -ms-transform: translate3d(20px, 20px, 20px);
   transform: translate3d(20px, 20px, 20px);
+  color: #000;
 }
 @-webkit-keyframes notransform {
   50% {

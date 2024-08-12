@@ -63,11 +63,13 @@ import AdvantagesBlock from '../components/AdvantagesBlock.vue'
 .about-header__subtitle {
   font-size: 1.5rem;
   text-align: center;
-  margin-top: 4rem;
-  padding-bottom: 2rem;
+  padding: 2rem;
 }
 .advantages-block {
   background: none;
+}
+.other-services {
+  // width: 100vw;
 }
 .other-services h3 {
   text-align: center;
@@ -85,8 +87,8 @@ import AdvantagesBlock from '../components/AdvantagesBlock.vue'
   justify-content: center;
 }
 .service-item {
-  width: 500px;
-  height: 300px;
+  max-width: 500px;
+  min-height: 300px;
   border-radius: 30%;
   background: url('/public/images/bg-item.png') center center/cover no-repeat;
   text-align: center;

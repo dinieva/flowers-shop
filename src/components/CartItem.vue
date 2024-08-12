@@ -88,6 +88,9 @@ const amountFunc = (operation) => {
   border-radius: 30px;
   margin-top: 1rem;
   padding: 0.5rem 1rem 0.5rem 0.5rem;
+  @media screen and (max-width: 401px) {
+    flex-direction: column;
+  }
 }
 .item-info {
   width: 100%;
@@ -141,6 +144,9 @@ const amountFunc = (operation) => {
     &:hover {
       opacity: 1;
       transform: scale(1.2);
+    }
+    @media screen and (max-width: 401px) {
+      top: 1rem;
     }
   }
 }

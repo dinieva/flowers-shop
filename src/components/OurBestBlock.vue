@@ -24,7 +24,7 @@
       :space-between="50"
       :autoplay="{
         delay: 2500,
-        disableOnInteraction: false
+        disableOnInteraction: true
       }"
       :grabCursor="true"
       @swiper="onSwiper"
@@ -32,6 +32,28 @@
         '--swiper-scrollbar-size': '8px',
         '--swiper-scrollbar-bg-color': 'rgb(229, 190, 190, 0.3)',
         '--swiper-scrollbar-drag-bg-color': 'rgba(229, 190, 190, 0.6)'
+      }"
+      :breakpoints="{
+        '320': {
+          slidesPerView: 1,
+          spaceBetween: 10
+        },
+        '520': {
+          slidesPerView: 1,
+          spaceBetween: 10
+        },
+        '640': {
+          slidesPerView: 1,
+          spaceBetween: 20
+        },
+        '768': {
+          slidesPerView: 2,
+          spaceBetween: 40
+        },
+        '1024': {
+          slidesPerView: 3.1,
+          spaceBetween: 50
+        }
       }"
     >
       <SwiperSlide v-for="trend in trendsStore.trends" :key="trend" data-swiper-autoplay="2000">
@@ -95,6 +117,7 @@ const closeCart = () => {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/media';
 ::-webkit-scrollbar {
   width: 2em;
 }
@@ -115,6 +138,12 @@ const closeCart = () => {
     font-size: 2.6rem;
     font-family: var(--lighthaus);
     text-align: center;
+    @include largemobile {
+      font-size: 2rem;
+    }
+    @include smallmobile {
+      font-size: 1.8rem;
+    }
   }
 }
 .all-cards {
@@ -153,16 +182,27 @@ const closeCart = () => {
   width: 70px;
   display: flex;
   cursor: pointer;
+  @include largemobile {
+    position: relative;
+  }
 }
 .arrow-btn__left {
   width: 30px;
   height: 30px;
   background: url('/public/svg/arrow-left.svg') center center/cover no-repeat;
+  @include smallmobile {
+    width: 20px;
+    height: 20px;
+  }
 }
 .arrow-btn__right {
   width: 30px;
   height: 30px;
   background: url('/public/svg/arrow-right.svg') center center/cover no-repeat;
+  @include smallmobile {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 .swiper-button-prev,
@@ -172,29 +212,4 @@ const closeCart = () => {
 .drawer-cart {
   max-height: 100vh;
 }
-
-/* MEDIA QUERIES */
-/* @media (max-width: 1200px) {
-  .swiper {
-    width: 80%;
-  }
-}
-
-@media (max-width: 900px) {
-  .swiper {
-    width: 50%;
-  }
-}
-
-@media (max-width: 765px) {
-  .swiper {
-    width: 70%;
-  }
-}
-
-@media (max-width: 550px) {
-  .swiper {
-    width: 80%;
-  }
-} */
 </style>
